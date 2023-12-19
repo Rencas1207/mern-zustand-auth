@@ -4,7 +4,7 @@ import { requireAuth } from '../middlewares/requireAuth';
 
 const router = Router();
 
-router.post('/login', requireAuth, loginHandler);
+router.post('/login', loginHandler);
 
 router.get('/profile', requireAuth, profileHandler);
 
