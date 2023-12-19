@@ -1,7 +1,10 @@
 import { loginRequest, profileRequest } from '../api/auth';
 import { useAuthStore } from '../store/auth';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
+  const navigate = useNavigate();
+
   const setToken = useAuthStore((state) => state.setToken);
   const setProfile = useAuthStore((state) => state.setProfile);
 
@@ -15,6 +18,8 @@ const LoginPage = () => {
 
     const resProfile = await profileRequest();
     setProfile(resProfile.data.profile);
+
+    navigate('/profile');
   };
 
   return (
